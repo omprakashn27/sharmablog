@@ -1,0 +1,74 @@
+{% extends 'accounts/layouts/main.html' %}
+{% load static %}
+{% block title %}
+
+Sharma coder
+{% endblock title %}
+
+{% block content %}
+
+<h1>Hello coders</h1>
+
+<section>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="mb-2">
+                <a href="{% url 'addblog' %}" class="btn float-end btn-primary">Add Blog</a>
+            </div>
+            <div class="col-md-12">
+                {% for msg in messages %}
+                    
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Hey!</strong> {{msg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="fw-bold"> Subscribe to Sharma Coders </h2>
+                        <hr>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Category ID</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for blogs in form %}
+                                    <tr>
+                                        <td>{{ blogs.title }}</td>
+                                        <td class="w-50">
+                                            {{ blogs.description }}
+                                        </td>
+                                        <td>{{ blogs.category }}</td>
+                                        {% if blogs.image %}
+                                            <td style="width: 100px;">
+                                                <img src="{{ blogs.image.url }}" alt="Image here" class="w-100">
+                                            </td>
+                                        {% else %}
+                                            <td style="width: 100px;">
+                                                <img src="{% static 'images/dummy.jpg' %}" alt="Image here" class="w-100">
+                                            </td>
+                                        {% endif %}
+                                        
+                                        <td>
+                                            <a href="{% url 'viewblog' blogs.id %}" class="btn btn-sm btn-primary"> View</a>
+                                            <a href="{% url 'edit' blogs.id %}" class="btn btn-sm btn-warning"> Edit</a>
+                                            <a href="{% url 'delete' blogs.id %}" class="btn btn-sm btn-danger"> Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

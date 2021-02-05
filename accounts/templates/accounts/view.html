@@ -1,0 +1,29 @@
+{% extends 'accounts/layouts/main.html' %}
+
+{% block title %}
+
+Sharma coder
+{% endblock title %}
+
+{% block content %}
+
+<h1>Hello coders</h1>
+
+<section>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <label>Title</label>
+                        {{blogs.title}}
+                        <br>
+                        <label>description</label>
+                        {{blogs.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
