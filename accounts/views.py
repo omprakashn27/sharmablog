@@ -60,7 +60,6 @@ def viewblog(request, pk):
     context = {'blogs':blogs}
     return render(request, 'accounts/view.html', context)
 
-@login_required(login_url="login")
 def addblog(request):
     form = BlogForm
     if request.method == 'POST':
