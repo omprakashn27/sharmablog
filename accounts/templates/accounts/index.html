@@ -27,43 +27,45 @@ Sharma coder
                     <div class="card-body">
                         <h2 class="fw-bold"> Subscribe to Sharma Coders </h2>
                         <hr>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Category ID</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for blogs in form %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td>{{ blogs.title }}</td>
-                                        <td class="w-50">
-                                            {{ blogs.description }}
-                                        </td>
-                                        <td>{{ blogs.category }}</td>
-                                        {% if blogs.image %}
-                                            <td style="width: 100px;">
-                                                <img src="{{ blogs.image.url }}" alt="Image here" class="w-100">
-                                            </td>
-                                        {% else %}
-                                            <td style="width: 100px;">
-                                                <img src="{% static 'images/dummy.jpg' %}" alt="Image here" class="w-100">
-                                            </td>
-                                        {% endif %}
-                                        
-                                        <td>
-                                            <a href="{% url 'viewblog' blogs.id %}" class="btn btn-sm btn-primary"> View</a>
-                                            <a href="{% url 'edit' blogs.id %}" class="btn btn-sm btn-warning"> Edit</a>
-                                            <a href="{% url 'delete' blogs.id %}" class="btn btn-sm btn-danger"> Delete</a>
-                                        </td>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Category ID</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
                                     </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {% for blogs in form %}
+                                        <tr>
+                                            <td>{{ blogs.title }}</td>
+                                            <td class="w-50">
+                                                {{ blogs.description }}
+                                            </td>
+                                            <td>{{ blogs.category }}</td>
+                                            {% if blogs.image %}
+                                                <td style="width: 100px;">
+                                                    <img src="{{ blogs.image.url }}" alt="Image here" class="w-100">
+                                                </td>
+                                            {% else %}
+                                                <td style="width: 100px;">
+                                                    <img src="{% static 'images/dummy.jpg' %}" alt="Image here" class="w-100">
+                                                </td>
+                                            {% endif %}
+                                            
+                                            <td>
+                                                <a href="{% url 'viewblog' blogs.id %}" class="btn btn-sm mb-2 btn-primary"> View</a>
+                                                <a href="{% url 'edit' blogs.id %}" class="btn btn-sm mb-2 btn-warning"> Edit</a>
+                                                <a href="{% url 'delete' blogs.id %}" class="btn btn-sm mb-2 btn-danger"> Delete</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
