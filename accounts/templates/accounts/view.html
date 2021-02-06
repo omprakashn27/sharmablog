@@ -15,11 +15,21 @@ Sharma coder
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-body">
-                        <label>Title</label>
-                        {{blogs.title}}
-                        <br>
-                        <label>description</label>
-                        {{blogs.description}}
+
+                    <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{blogs.title}}</td>
+                                    <td>{{blogs.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
