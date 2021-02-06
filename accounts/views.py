@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def registerPage(request):
@@ -83,6 +84,7 @@ def editBlog(request, pk):
     context = {'form':form}
     return render(request, 'accounts/edit.html', context)
 
+@login_required(login_url="login")
 def deleteBlog(request, pk):
     form = Blogs.objects.get(id=pk)
     form.delete()
